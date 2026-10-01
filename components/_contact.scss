@@ -1,0 +1,72 @@
+@import "./mixins";
+.contact {
+  @include twoColumns($column-gap: 20rem);
+  align-items: center;
+}
+.contact__description {
+  font-size: var(--font-size-20);
+  line-height: 1.9;
+}
+.contact__email {
+  font-weight: var(--font-weight-bold);
+  margin-block: 2.5rem;
+}
+.contact__social {
+  transition: var(--transition-timing);
+}
+.contact__social:hover {
+  transform: scale(1.2);
+}
+.contact__inputs {
+  display: flex;
+  gap: 3rem;
+}
+.contact__input {
+  padding-inline-start: 2rem;
+}
+
+.contact__input-wrapper {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+}
+.contact__input {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  border-bottom: 0.1rem solid var(--color-input-border);
+  background-color: transparent;
+  /* flex: 1; */
+  color: var(--color-text);
+}
+.contact__textarea-wrapper {
+  margin-block-start: 4rem;
+  position: relative;
+}
+.contact__input + .input__error-message::after,
+.contact__textarea + .textarea__error-message::after {
+  content: "*";
+  position: absolute;
+  top: -5px;
+  inset-inline-start: 0px;
+  font-size: var(--font-size-38);
+  color: var(--color-red);
+  pointer-events: none;
+}
+.contact__input:valid + .input__error-message::after,
+.contact__textarea:valid + .textarea__error-message::after {
+  content: "✓";
+  color: var(--color-green);
+  font-size: var(--font-size-20);
+}
+.contact__input:valid {
+  border-bottom-color: var(--color-green);
+}
+.contact__button {
+  background-color: var(--color-link-bg);
+  color: var(--color-white);
+  padding: 1.7rem 1.8rem;
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-24);
+  margin-block-start: 3.4rem;
+}
